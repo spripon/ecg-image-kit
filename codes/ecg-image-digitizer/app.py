@@ -51,17 +51,17 @@ if uploaded_file is not None:
         with col2:
             st.markdown("**Méthode Margdist**")
             result_margdist = ecg_gridest_margdist(img)
-            st.write(f"Résultat : {result_margdist:.2f} px")
+            st.write(f"Résultat : {result_margdist[0]:.2f} px" if isinstance(result_margdist, tuple) else f"Résultat : {result_margdist:.2f} px")
 
         with col3:
             st.markdown("**Méthode Spectrale**")
             result_spectral = ecg_gridest_spectral(img)
-            st.write(f"Résultat : {result_spectral:.2f} px")
+            st.write(f"Résultat : {result_spectral[0]:.2f} px" if isinstance(result_spectral, tuple) else f"Résultat : {result_spectral:.2f} px")
 
         with col4:
             st.markdown("**Méthode Matched Filter**")
             result_matchedfilt = ecg_gridest_matchedfilt(img)
-            st.write(f"Résultat : {result_matchedfilt:.2f} px")
+            st.write(f"Résultat : {result_matchedfilt[0]:.2f} px" if isinstance(result_matchedfilt, tuple) else f"Résultat : {result_matchedfilt:.2f} px")
 
         # Option téléchargement CSV à compléter
         st.markdown("---")

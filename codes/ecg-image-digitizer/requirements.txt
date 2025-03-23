@@ -34,3 +34,4 @@ torchvision
 tqdm
 validators
 zipp
+PyYAML

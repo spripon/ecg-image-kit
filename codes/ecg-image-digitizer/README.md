@@ -1,56 +1,50 @@
-# `ecg-image-digitizer`
-***Software tools for ECG image processing and digitization***
+# ECG Image Kit (version étendue)
 
-## Python
+Ce dépôt contient des outils avancés pour la digitalisation, l'analyse et la génération de tracés ECG à partir d'images. Il inclut une application Web Streamlit complète pour extraire automatiquement les signaux ECG depuis des photos ou scans papier.
 
-### Functions
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/spripon/ecg-image-kit/main/codes/ecg-image-digitizer/app.py)
 
-| File | Description |
-|---|---|
-[ROI](roi)| ECG lead detection with YOLOv7 |
+---
 
-## MATLAB
+## Contenu du dépôt
 
-### Functions
+- `codes/ecg-image-digitizer/` :  
+  → Contient l’application Streamlit **ECG Image Digitizer** :
+  - Détection automatique des dérivations ECG (YOLOv7)
+  - Estimation de la grille ECG (4 méthodes)
+  - Extraction du signal numérique et export CSV
+  - Web app déployable via [streamlit.io](https://streamlit.io)
 
-| File | Description |
-|---|---|
-[ecg_grid_size_from_paper.m](ecg_grid_size_from_paper.m)| ECG grid size estimate from paper size and image width |
-[ecg_gridest_margdist.m](ecg_gridest_margdist.m)| ECG grid size estimation - marginal image intensity approach |
-[ecg_gridest_spectral.m](ecg_gridest_spectral.m)| ECG grid size estimation - spectral approach |
-[ecg_gridest_matchedfilt.m](ecg_gridest_matchedfilt.m)| ECG grid size estimation - matched filter-based approach |
-[image_to_sequence.m](image_to_sequence.m)| Extract time-series from an ECG segment |
-[tanh_sat.m](tanh_sat.m)| Saturate signal/image intensity with a tanh function |
+- `codes/ecg-image-generator/` :  
+  → Outils pour générer des images ECG synthétiques
 
+- `sample-data/` :  
+  → Exemples d’images ECG papier utilisables pour tester les outils
 
-### Test scripts
+---
 
-| File | Description |
-|---|---|
-[test_ecg_grid_size_estimator.m](test_ecg_grid_size_estimator.m)| A test script for running and comparing the grid size estimation methods |
-[test_ecg_sequence_extraction.m](test_ecg_sequence_extraction.m)| A test script for time-series extraction from an image segment |
+## Lancer localement l'application Streamlit
 
-## Citation
-Please include references to the following articles in any publications:
+```bash
+cd codes/ecg-image-digitizer
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-1. Kshama Kodthalu Shivashankara, Deepanshi, Afagh Mehri Shervedani, Matthew A. Reyna, Gari D. Clifford, Reza Sameni (2024). ECG-image-kit: a synthetic image generation toolbox to facilitate deep learning-based electrocardiogram digitization. In Physiological Measurement. IOP Publishing. doi: [10.1088/1361-6579/ad4954](https://doi.org/10.1088/1361-6579/ad4954)
+---
 
+## Déploiement
 
-2. ECG-Image-Kit: A Toolkit for Synthesis, Analysis, and Digitization of Electrocardiogram Images, (2024). URL: [https://github.com/alphanumericslab/ecg-image-kit](https://github.com/alphanumericslab/ecg-image-kit)
+- Fork ou clone ce dépôt
+- Va sur [streamlit.io/cloud](https://streamlit.io/cloud)
+- Crée une nouvelle app avec :
+  - Repo : `spripon/ecg-image-kit`
+  - Fichier d’entrée : `codes/ecg-image-digitizer/app.py`
 
-## Contributors
-- Deepanshi, Department of Biomedical Informatics, Emory University, GA, US
-- Kshama Kodthalu Shivashankara, School of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta, GA, US
-- Matthew A Reyna, Department of Biomedical Informatics, Emory University, GA, US
-- Gari D Clifford, Department of Biomedical Informatics and Biomedical Engineering, Emory University and Georgia Tech, GA, US
-- Reza Sameni (contact person), Department of Biomedical Informatics and Biomedical Engineering, Emory University and Georgia Tech, GA, US
+---
 
-## Contact
-Please direct any inquiries, bug reports or requests for joining the team to: [ecg-image-kit@dbmi.emory.edu](ecg-image-kit@dbmi.emory.edu).
+## Crédits
 
-
-![Static Badge](https://img.shields.io/badge/ecg_image-kit-blue)
-
-
-
-
+- Basé sur le projet open-source [alphanumericslab/ecg-image-kit](https://github.com/alphanumericslab/ecg-image-kit)
+- YOLOv7 pour la détection automatique de dérivations ECG
+- Conversion MATLAB → Python des fonctions de calibration ECG

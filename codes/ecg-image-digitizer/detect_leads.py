@@ -14,6 +14,12 @@ def detect_roi_yolov7(image_path, output_dir="roi_output", weights=None, conf=0.
     output_dir = os.path.join(os.path.dirname(__file__), output_dir, str(uuid.uuid4()))
     os.makedirs(output_dir, exist_ok=True)
 
+    # S'assurer que le fichier a une extension correcte pour YOLOv7
+    if not os.path.splitext(image_path)[1]:
+        new_path = image_path + ".jpg"
+        os.rename(image_path, new_path)
+        image_path = new_path
+
     command = [
         sys.executable, os.path.join(yolov7_path, "detect.py"),
         "--weights", weights,

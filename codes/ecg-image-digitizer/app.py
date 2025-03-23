@@ -51,26 +51,32 @@ if uploaded_file is not None:
         with col2:
             st.markdown("**Méthode Margdist**")
             result_margdist = ecg_gridest_margdist(img)
-            val = result_margdist[0] if isinstance(result_margdist, tuple) else result_margdist
-            val = np.array(val).flatten()[0]
-            val = float(val)
-            st.write(f"Résultat : {val:.2f} px")
+            arr = np.array(result_margdist).flatten()
+            val = float(arr[0]) if arr.size > 0 else None
+            if val is not None:
+                st.write(f"Résultat : {val:.2f} px")
+            else:
+                st.write("Résultat : Non détecté")
 
         with col3:
             st.markdown("**Méthode Spectrale**")
             result_spectral = ecg_gridest_spectral(img)
-            val = result_spectral[0] if isinstance(result_spectral, tuple) else result_spectral
-            val = np.array(val).flatten()[0]
-            val = float(val)
-            st.write(f"Résultat : {val:.2f} px")
+            arr = np.array(result_spectral).flatten()
+            val = float(arr[0]) if arr.size > 0 else None
+            if val is not None:
+                st.write(f"Résultat : {val:.2f} px")
+            else:
+                st.write("Résultat : Non détecté")
 
         with col4:
             st.markdown("**Méthode Matched Filter**")
             result_matchedfilt = ecg_gridest_matchedfilt(img)
-            val = result_matchedfilt[0] if isinstance(result_matchedfilt, tuple) else result_matchedfilt
-            val = np.array(val).flatten()[0]
-            val = float(val)
-            st.write(f"Résultat : {val:.2f} px")
+            arr = np.array(result_matchedfilt).flatten()
+            val = float(arr[0]) if arr.size > 0 else None
+            if val is not None:
+                st.write(f"Résultat : {val:.2f} px")
+            else:
+                st.write("Résultat : Non détecté")
 
         st.markdown("---")
         st.markdown("### Téléchargement du CSV (fonctionnalité à venir)")

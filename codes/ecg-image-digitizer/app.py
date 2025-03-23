@@ -1,5 +1,3 @@
-# Redéploiement pour forcer Streamlit Cloud à lire packages.txt
-
 import streamlit as st
 import cv2
 import numpy as np

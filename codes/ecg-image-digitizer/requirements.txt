@@ -31,3 +31,5 @@ tifffile
 tqdm
 validators
 zipp
+torch
+torchvision

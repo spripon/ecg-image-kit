@@ -1,6 +1,3 @@
-Keras-Applications
-Pillow
-PyWavelets
 contourpy==1.1.1
 cycler
 editdistance
@@ -11,6 +8,7 @@ h5py
 imageio
 imgaug
 importlib-resources
+Keras-Applications
 keras-ocr
 kiwisolver
 lazy_loader
@@ -20,11 +18,15 @@ numpy==1.26.4
 opencv-python
 opencv-python-headless
 packaging
+Pillow
 pyclipper
 pyparsing
 python-dateutil
+PyWavelets
+PyYAML
 scikit-image
 scipy
+seaborn
 shapely
 six
 streamlit
@@ -34,4 +36,3 @@ torchvision
 tqdm
 validators
 zipp
-PyYAML
